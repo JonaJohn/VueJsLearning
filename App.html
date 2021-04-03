@@ -1,0 +1,30 @@
+<Html>
+<head>
+    <title> Vue.js stuff</title>
+    <link rel="stylesheet" type = "text/css" href="stylesheet.css">
+</head>
+<body>
+    <div class = "nav-bar"></div>
+
+    <div id = 'app'>
+
+        <div class = "product">
+
+            <div class = 'product-image'>
+                <img v-bind:src="image"> 
+                <!-- <img src="C:\Users\John\Desktop\Java.Html.Css\VueJsLearning\images\0.jpg" alt=""> -->
+            </div>  
+            <div class = 'product-info'>
+                <h1>{{ product }}</h1>
+            </div>
+        
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdeLivr.net/npm/vue"></script><!--Muss zu erst stehen-->
+    <script src= 'main.js'></script>
+</body>
+
+
+</Html>
