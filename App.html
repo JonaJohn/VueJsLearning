@@ -15,9 +15,15 @@
             </div>  
             <div class = 'product-info'>
                 <h1>{{ product }}</h1>
+                <p v-if = "inventory > 10">in Stock</p>
+                <p v-else-if ="inventory <= 10 && inventory > 0">Almost out of Stock</p>
+                <p v-else>out of Stock</p>
+                <!-- <p v-if ="almostOut">almost out of Stock</p> -->
             </div>
-        
+
         </div>
+        <span v-if="onSale">OnSale</span>
+        <a v-bind:href="link"> Einmal bitte drücken </a>
     </div>
 
 
