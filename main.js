@@ -1,4 +1,4 @@
-var app = new Vue({ // ist eine Classe 
+var app = new Vue({ // Class
 el: '#app',
 data:{
     product: 'Socks',
