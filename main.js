@@ -29,7 +29,7 @@ methods:{
         this.image = variantImage
     },
     deleteOne: function(){
-        if (this.cart != 0){
+        if (this.cart != 0){//mit this.cart greift man auf die jeweilige Eigenschaft zu. Diese kann man schließlich manipulieren
         this.cart -= 1;
         }
     }

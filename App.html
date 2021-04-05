@@ -22,8 +22,11 @@
                 <ul>
                     <li v-for = "detail in details">{{detail}}</li>
                 </ul>
-                <div v-for = "variant in variants" v-bind:key="variant.variantId">
-                    <p v-on:mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
+                <div v-for = "variant in variants" 
+                    v-bind:key="variant.variantId"
+                    class ="color-box"
+                    v-bind:style="{backgroundColor: variant.variantColor}"
+                    v-on:mouseover="updateProduct(variant.variantImage)"><!--backgroundColor is the css property  -->
                 </div>
 
                 <button v-on:click="addToCart" >Add to Cart</button>
