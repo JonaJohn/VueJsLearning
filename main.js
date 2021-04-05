@@ -1,11 +1,39 @@
 var app = new Vue({ // Class
 el: '#app',
 data:{//data object
-    product: 'Cars',//property oder Eigenschaften
-    image: 'C:/Users/John/Desktop/Java.Html.Css/VueJsLearning/images/Auto.jpg',
+    product: 'Tesla Model S',//property oder Eigenschaften
+    image: 'images/Auto.jpg',
     link: 'https://de.wikipedia.org/wiki/Adolf_Hitler',
-    inventory:0,
-    onSale: false
+    inventory: 22,
+    onSale: false,
+    details: ["Reichweite: 600km", "Höchstgeschwindigkeit:322kmh", "PS:1020PS"],//Array in komischen Klammern
+    variants: [{ 
+            variantId: 23123,
+            variantColor: "black",
+            variantImage:"images/autoBlack.jpg"
+        },
+        {
+            variantId: 123141,
+            variantColor: "red",
+            variantImage:"images/autoRed.jpg"
+        }
+    ],
+    sizes:["40", "41", "42", "43", "44", "45", "46"],
+    cart: 0
+},
+methods:{
+    addToCart: function(){
+        this.cart += 1;
+    },
+    updateProduct(variantImage){
+        this.image = variantImage
+    },
+    deleteOne: function(){
+        if (this.cart != 0){
+        this.cart -= 1;
+        }
+    }
 }
 
 })
+// console.log(document.getElementById("Test").getAttribute("key"));//Warum funktioniert das nicht ?
