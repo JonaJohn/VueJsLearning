@@ -17,7 +17,7 @@
                 <h1>{{ product }}</h1>
                 <p v-if = "inventory > 10">in Stock</p>
                 <p v-else-if ="inventory <= 10 && inventory > 0">Almost out of Stock</p>
-                <p v-else>out of Stock</p>
+                <p v-else :class="{outOfStock: !inStock}">out of Stock</p>
 
                 <ul>
                     <li v-for = "detail in details">{{detail}}</li>
@@ -29,7 +29,9 @@
                     v-on:mouseover="updateProduct(variant.variantImage)"><!--backgroundColor is the css property  -->
                 </div>
 
-                <button v-on:click="addToCart" >Add to Cart</button>
+                <button v-on:click="addToCart" 
+                        v-bind:disabled="!inStock"
+                        v-bind:class="{disabledButton: !inStock}">Add to Cart</button>
 
                 <div class="cart">
                     <p>Cart({{cart}})</p>

@@ -1,4 +1,6 @@
-
+.outOfStock{
+  text-decoration: line-through;
+}
 
 body {
   font-family: tahoma;

@@ -4,8 +4,9 @@ data:{//data object
     product: 'Tesla Model S',//property oder Eigenschaften
     image: 'images/Auto.jpg',
     link: 'https://de.wikipedia.org/wiki/Adolf_Hitler',
-    inventory: 22,
-    onSale: false,
+    inventory: 0,
+    inStock: false,
+    onSale: true,
     details: ["Reichweite: 600km", "Höchstgeschwindigkeit:322kmh", "PS:1020PS"],//Array in komischen Klammern
     variants: [{ 
             variantId: 23123,
@@ -18,7 +19,7 @@ data:{//data object
             variantImage:"images/autoRed.jpg"
         }
     ],
-    sizes:["40", "41", "42", "43", "44", "45", "46"],
+    sizes:["40", "41", "42", "43", "44", "45", "46"],//wird nicht benutzt
     cart: 0
 },
 methods:{
