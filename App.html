@@ -7,43 +7,7 @@
     <div class = "nav-bar"></div>
 
     <div id = 'app'>
-
-        <div class = "product">
-
-            <div class = 'product-image'>
-                <img v-bind:src="image"> 
-            </div>  
-            <div class = 'product-info'>
-                <h1>{{ title }}</h1>
-                <p v-if = "inventory > 10">in Stock</p>
-                <p v-else-if ="inventory <= 10 && inventory > 0">Almost out of Stock</p>
-                <p v-else :class="{outOfStock: !inStock}">out of Stock</p>
-
-                <ul>
-                    <li v-for = "detail in details">{{detail}}</li>
-                </ul>
-                <div v-for = "variant in variants" 
-                    v-bind:key="variant.variantId"
-                    class ="color-box"
-                    v-bind:style="{backgroundColor: variant.variantColor}"
-                    v-on:mouseover="updateProduct(variant.variantImage)"><!--backgroundColor is the css property  -->
-                </div>
-
-                <button v-on:click="addToCart" 
-                        v-bind:disabled="!inStock"
-                        v-bind:class="{disabledButton: !inStock}">Add to Cart</button>
-
-                <div class="cart">
-                    <p>Cart({{cart}})</p>
-                </div>
-                
-                    <button v-on:click="deleteOne">Delete one</button>
-                
-            </div>
-
-        </div>
-        <span v-if="onSale">OnSale</span>
-        <a v-bind:href="link"> Einmal bitte drücken </a>
+        <product v-bind:premium="premium"></product>
     </div>
 
 
