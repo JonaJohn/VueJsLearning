@@ -1,11 +1,12 @@
 var app = new Vue({ // Class
 el: '#app',
 data:{//data object
+    brand: 'Vue.Js Website',
     product: 'Tesla Model S',//property oder Eigenschaften
     image: 'images/Auto.jpg',
     link: 'https://de.wikipedia.org/wiki/Adolf_Hitler',
-    inventory: 0,
-    inStock: false,
+    inventory: 15,
+    inStock: true,
     onSale: true,
     details: ["Reichweite: 600km", "Höchstgeschwindigkeit:322kmh", "PS:1020PS"],//Array in komischen Klammern
     variants: [{ 
@@ -33,6 +34,11 @@ methods:{
         if (this.cart != 0){//mit this.cart greift man auf die jeweilige Eigenschaft zu. Diese kann man schließlich manipulieren
         this.cart -= 1;
         }
+    }
+},
+computed:{//errechnet z.B property + property 
+    title(){
+       return this.brand  + ' ' + this.product
     }
 }
 
