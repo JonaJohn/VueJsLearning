@@ -1,11 +1,24 @@
-Vue.component('product', {//template kann nur ein Element wiedergeben. Deswegen wird ein großes Div wiedergegeben
+Vue.component('product-details', {
+props:{
+    details:{
+        type: Array,
+        required: true
+    }
+},
+    template:`
+    <ul>
+            <li v-for = "detail in details">{{detail}}</li>
+    </ul>`
+
+})
+Vue.component('product', {//child 
     props:{//möglichkeit Daten von drausen mit reinzubringen
         premium:{
             type: Boolean,
             required: true
 
         }
-    },
+    },//template kann nur ein Element wiedergeben. Deswegen wird ein großes Div wiedergegeben
     template:`
     <div class = "product">
 
@@ -18,9 +31,8 @@ Vue.component('product', {//template kann nur ein Element wiedergeben. Deswegen 
         <p v-else-if ="inventory <= 10 && inventory > 0">Almost out of Stock</p>
         <p v-else :class="{outOfStock: !inStock}">out of Stock</p>
 
-        <ul>
-            <li v-for = "detail in details">{{detail}}</li>
-        </ul>
+        <product-details v-bind:details="details"></product-details>
+
         <div v-for = "(variant, index) in variants" 
             v-bind:key="variant.variantId"
             class ="color-box"
@@ -110,10 +122,12 @@ computed:{//errechnet z.B property + property
 })
 
 
-var app = new Vue({ // Class
+var app = new Vue({ // Class //root instance = Stamminstanz
 el: '#app',
 data:{
-    premium: true
+    premium: true,
+    // details: ["Reichweite: 600km", "Höchstgeschwindigkeit:322kmh", "PS:1020PS"]
+    
 }
 
 })
