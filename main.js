@@ -44,10 +44,7 @@ Vue.component('product', {//child
                 v-bind:disabled="!inStock"
                 v-bind:class="{disabledButton: !inStock}">Add to Cart</button>
 
-        <div class="cart">
-            <p>Cart({{cart}})</p>
-            <p>{{printoutSomething}}</p>
-        </div>
+
         
         <button v-on:click="deleteOne">Delete one</button>
         
@@ -82,14 +79,14 @@ data(){//returns an data object
                 variantQuantity: 0
             }
         ],
-        sizes:["40", "41", "42", "43", "44", "45", "46"],//wird nicht benutzt
-        cart: 0
+        sizes:["40", "41", "42", "43", "44", "45", "46"]//wird nicht benutzt
+        
     } 
 },
 methods:{
-        addToCart: function(){
-            this.cart += 1;
-        },
+        // addToCart: function(){
+        //     this.cart += 1;
+        // },
         updateProduct(index){
             this.selection = index
             console.log(index)
@@ -97,10 +94,14 @@ methods:{
         deleteOne: function(){
             if (this.cart != 0){//mit this.cart greift man auf die jeweilige Eigenschaft zu. Diese kann man schließlich manipulieren
             this.cart -= 1;
+            }
+        },
+        addToCart: function(){
+            this.$emit('add-to-cart')//emits an event 
         }
         
         
-    }
+    
 },
 computed:{//errechnet z.B property + property 
     title(){
@@ -127,7 +128,13 @@ el: '#app',
 data:{
     premium: true,
     // details: ["Reichweite: 600km", "Höchstgeschwindigkeit:322kmh", "PS:1020PS"]
+    cart: 0
     
+},
+methods:{
+    updateCart(){
+        this.cart += 1
+    }
 }
 
 })
